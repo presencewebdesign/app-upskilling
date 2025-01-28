@@ -1,17 +1,13 @@
-:root {
-  font-family: Frutiger W01,Arial,Sans-serif;
-  line-height: 1.5;
+@use "./styles/variables" as *;
+
+body {
+  font-family: var(--font-family-primary);
+  line-height: var(--line-height-base);
   font-weight: 400;
-  font-size: 16px;
+  font-size: var(--font-size-base);
   margin: 0;
   min-height: 100%;
-  
-  --nhs-white: #f0f4f5;
-  --nhs-dark-blue: #143284;
-  --nhs-blue: #005eb8;
-  --nhs-yellow: #fbea50;
-
-  color: #212b32;
+  color: var(--text-primary);
   background-color: var(--nhs-white);
 }
 
@@ -20,7 +16,7 @@ button {
   color: var(--nhs-white);
   border: none;
   border-bottom: 4px solid var(--nhs-dark-blue);
-  border-radius: 4px;
+  border-radius: var(--border-radius-sm);
   width: 122px;
   height: 60px;
   font-size: 22px;

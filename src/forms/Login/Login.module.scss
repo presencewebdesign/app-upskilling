@@ -124,17 +124,19 @@
   position: relative;
   transition: background-color 0.2s ease;
   color: white;
+  background-color: var(--nhs-green);
+  border-color: var(--nhs-green-dark);
 
   &:hover:not(:disabled) {
-    background-color: var(--nhs-dark-blue);
+    background-color: var(--nhs-green-dark);
     cursor: pointer;
     color: white;
   }
 
   &:focus {
     outline: none;
-    background-color: var(--nhs-blue);
-    box-shadow: 0 0 0 4px rgba(0, 94, 184, 0.1);
+    background-color: var(--nhs-green);
+    box-shadow: 0 0 0 4px rgba(0, 127, 59, 0.1);
     color: white;
   }
 
@@ -143,7 +145,7 @@
   }
 
   &:focus-visible {
-    background-color: var(--nhs-blue);
+    background-color: var(--nhs-green);
     color: white;
   }
 

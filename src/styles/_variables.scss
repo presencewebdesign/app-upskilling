@@ -1,4 +1,26 @@
 :root {
+  // Colors
+  --nhs-white: #f0f4f5;
+  --nhs-dark-blue: #143284;
   --nhs-blue: #005eb8;
-  --nhs-dark-blue: #002f5c;
+  --nhs-green: #007f3b;
+  --nhs-green-dark: #046933;
+  --nhs-red: #d5281b;
+  --nhs-red-light: #fff1f1;
+
+  // Font settings
+  --font-family-primary: Frutiger W01, Arial, Sans-serif;
+  --font-size-base: 16px;
+  --line-height-base: 1.5;
+
+  // Text colors
+  --text-primary: #212b32;
+
+  // Border radius
+  --border-radius-sm: 4px;
+
+  // Focus states
+  --focus-ring-blue: 0 0 0 4px rgba(0, 94, 184, 0.1);
+  --focus-ring-green: 0 0 0 4px rgba(0, 127, 59, 0.1);
+  --focus-ring-red: 0 0 0 4px rgba(213, 40, 27, 0.1);
 }
