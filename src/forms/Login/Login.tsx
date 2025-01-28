@@ -1,55 +1,77 @@
-import { FC, useState } from 'react';
-import api from '../../lib/api';
+import { FC } from 'react';
+import { FormField } from '../../components/FormField/FormField';
+import { useLoginForm } from '../../hooks/useLoginForm';
 import s from './Login.module.scss';
 
 export interface LoginFormProps {
   callback?(): void;
 }
 
-
 const LoginForm: FC<LoginFormProps> = ({ callback = () => {} }) => {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const [error, setError] = useState('');
-
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    setError('');
-    try {
-      await api.login(email, password);
-      // Handle successful login, e.g., redirect to another page
+  const {
+    email,
+    password,
+    error,
+    isLoading,
+    validationErrors,
+    handleEmailChange,
+    handlePasswordChange,
+    handleSubmit
+  } = useLoginForm({
+    onSuccess: () => {
       callback();
       window.location.reload();
-    } catch (err) {
-      setError((err as Error).message);
     }
-  };
+  });
 
   return (
-    <form className={s.form} onSubmit={handleSubmit}>
-      <div className={s.formGroup}>
-        <label className={s.label} htmlFor="email">Email:</label>
-        <input
-          className={s.input}
-          type="email"
-          id="email"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-        />
+    <div className={s.loginContainer}>
+      <div className={s.formWrapper}>
+        <h2>Sign in to NHS App</h2>
+        <p className={s.subtitle}>Enter your email and password to continue</p>
+        
+        <form className={s.form} onSubmit={handleSubmit} noValidate>
+          <FormField
+            label="Email address"
+            type="email"
+            id="email"
+            value={email}
+            onChange={handleEmailChange}
+            placeholder="Enter your email"
+            required
+            error={validationErrors.email}
+          />
+
+          <FormField
+            label="Password"
+            type="password"
+            id="password"
+            value={password}
+            onChange={handlePasswordChange}
+            placeholder="Enter your password"
+            required
+            error={validationErrors.password}
+          />
+
+          {error && <div className={s.error} role="alert">{error}</div>}
+
+          <button 
+            type="submit" 
+            className={s.submitButton} 
+            disabled={isLoading}
+          >
+            {isLoading ? (
+              <span className={s.buttonContent}>
+                <span className={s.spinner} aria-hidden="true" />
+                <span className={s.buttonText}>Signing in...</span>
+              </span>
+            ) : (
+              'Sign in'
+            )}
+          </button>
+        </form>
       </div>
-      <div className={s.formGroup}>
-        <label className={s.label} htmlFor="password">Password:</label>
-        <input
-          className={s.input}
-          type="password"
-          id="password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-        />
-      </div>
-      <button type="submit">Continue</button>
-      {error && <div>{error}</div>}
-    </form>
+    </div>
   );
 };
 
