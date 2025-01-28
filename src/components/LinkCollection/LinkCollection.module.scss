@@ -1,0 +1,44 @@
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  h3, a {
+    margin: 10px 0;
+  }
+
+  a {
+    color: var(--nhs-blue);
+  }
+}
+
+.linkCollection {
+  background-color: #ffffff;
+  border: 1px solid #d3d3d3;
+  padding: 2rem;
+  
+  .link {
+    a {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 100%;
+      font-size: 1.2rem;
+      font-weight: bold;
+      color: var(--nhs-blue);
+      text-decoration: none;
+    }
+  }
+  
+  .chevron::before {
+    content: "\279C"; /* Unicode for chevron right */
+    margin-right: 0.5rem;
+  }
+  
+  hr {
+    border: 1px solid #d3d3d3;
+    margin: 1rem 0;
+    width: 100%;
+  }
+}
+
