@@ -6,6 +6,8 @@ import { SjrProvider } from "../context";
 
 const Login = lazy(() => import("./Login/Login"));
 const Messages = lazy(() => import("./Messages/Messages"));
+const Services = lazy(() => import("./Services/Services"));
+const Health = lazy(() => import("./Health/Health"));
 const Home = lazy(() => import("./Home/Home"));
 
 const Pages = () => {
@@ -21,8 +23,9 @@ const Pages = () => {
         >
           <Route index element={<Home />} />
           <Route path={ROUTES.MESSAGES} element={<Messages />} />
+          <Route path={ROUTES.SERVICES} element={<Services />} />
+          <Route path={ROUTES.HEALTH} element={<Health />} />
         </Route>
-
 
         {/* Redirect to Home if authenticated */}
         <Route

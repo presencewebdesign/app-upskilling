@@ -1,3 +1,61 @@
+.container {
+  padding: 1rem;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.header {
+  margin-bottom: 2rem;
+
+  h1 {
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+  }
+
+  h2 {
+    font-size: 1.2rem;
+    font-weight: normal;
+    color: #4c6272;
+  }
+}
+
 .nhsNumber {
   color: var(--nhs-blue);
+}
+
+.helpChangeNhs {
+  display: flex;
+  background-color: var(--nhs-dark-blue);
+  color: white;
+  border-radius: 4px;
+  margin: 2rem 0;
+  overflow: hidden;
+  text-decoration: none;
+  cursor: pointer;
+
+  img {
+    width: 200px;
+    height: 150px;
+    object-fit: cover;
+  }
+
+  .helpContent {
+    padding: 1.5rem;
+
+    h3 {
+      font-size: 1.5rem;
+      margin: 0 0 0.5rem 0;
+    }
+
+    p {
+      margin: 0;
+      font-size: 1.1rem;
+    }
+  }
+}
+
+.logoutButton {
+  margin-top: 1rem;
+  width: 100%;
+  max-width: 200px;
 }

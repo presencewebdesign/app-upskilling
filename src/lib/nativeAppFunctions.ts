@@ -16,20 +16,20 @@ export const installNativeAppFunctions = (navigate: NavigateFunction) => {
     navigateToPage(tab: number) {
       switch (tab) {
         case 0:
-          navigate(ROUTES.HOME)
+          navigate(ROUTES.HOME);
           break;
         case 1:
-          navigate(ROUTES.SERVICES)
+          navigate(ROUTES.SERVICES);
           break;
         case 2:
-          navigate(ROUTES.MESSAGES)
+          navigate(ROUTES.HEALTH);
           break;
         case 3:
-          navigate(ROUTES.MESSAGES)
+          navigate(ROUTES.MESSAGES);
           break;
         default:
-          navigate(ROUTES.HOME)
+          navigate(ROUTES.HOME);
       }
     }
-  }
-}
+  };
+};

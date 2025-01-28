@@ -1,7 +1,7 @@
 import api from "../../lib/api"
 import { ROUTES, SJR } from "../../types"
 import { useUserInfo } from "../../hooks"
-import { LinkCollection } from "../../components"
+import { ServiceSection, HelpChangeNhs } from "../../components"
 import s from './Home.module.scss';
 import { useSjrContext } from "../../context";
 import { useNavigate } from "react-router";
@@ -26,45 +26,51 @@ const Home = () => {
     return "Good evening";
   }
 
+  const services = [
+    { title: "Request repeat prescriptions", route: ROUTES.MESSAGES },
+    { title: "Check if you need urgent medical help using 111 online", route: ROUTES.MESSAGES },
+    { title: "Find NHS services near you", route: ROUTES.MESSAGES }
+  ];
+
+  const healthLinks = [
+    { title: "GP health record", route: ROUTES.MESSAGES },
+    { title: "View and manage prescriptions", route: ROUTES.MESSAGES },
+    { title: "Upcoming and past appointments", route: ROUTES.MESSAGES }
+  ];
+
+  const messages = [
+    { title: "View your messages", route: ROUTES.MESSAGES }
+  ];
+
+  const account = [
+    { title: "Manage health services for others", route: ROUTES.MESSAGES }
+  ];
+
   if (loading)
     return <div>Loading...</div>;
 
   return (
-    <div>
-      <h1>
-        {getGreeting()}, <br />
-        {userInfo?.first_name} {userInfo?.last_name}
-      </h1>
-      <h2>NHS number: <span className={s.nhsNumber}>123 456 7890</span></h2>
+    <div className={s.container}>
+      <header className={s.header}>
+        <h1>
+          {getGreeting()},<br />
+          {userInfo?.first_name} {userInfo?.last_name}
+        </h1>
+        <h2>NHS number: <span className={s.nhsNumber}>432 270 2821</span></h2>
+      </header>
 
-      <LinkCollection 
-        title={"Services"}
-        url={ROUTES.SERVICES}
-        links={[
-          { label: "Request repeat prescriptions", url: ROUTES.MESSAGES },
-          { label: "Check if you need urgent medical help using 111 online", url: ROUTES.MESSAGES },
-          { label: "Find NHS services near you", url: ROUTES.MESSAGES }
-        ]} 
-      />
-      {checkFeatureAvailable(SJR.HEALTH_RECORD) ? (
-          <LinkCollection 
-            title={"Your health"}
-            url={ROUTES.SERVICES}
-            links={[
-              { label: "GP health record", url: ROUTES.MESSAGES },
-              { label: "View and manage prescriptions", url: ROUTES.MESSAGES },
-              { label: "Upcoming and past appointments", url: ROUTES.MESSAGES }
-            ]} 
-          />
-      ) : <></>}
-      <LinkCollection 
-        title={"Messages"}
-        links={[
-          { label: "View your messages", url: ROUTES.MESSAGES },
-        ]} 
-      />
+      <ServiceSection title="Services" links={services} />
+      
+      {checkFeatureAvailable(SJR.HEALTH_RECORD) && (
+        <ServiceSection title="Your health" links={healthLinks} />
+      )}
+      
+      <ServiceSection title="Messages" links={messages} />
+      <ServiceSection title="Account" links={account} />
 
-      <button onClick={() => api.logout()}>Logout</button>
+      <HelpChangeNhs />
+
+      <button onClick={() => api.logout()} className={s.logoutButton}>Logout</button>
     </div>
   )
 }

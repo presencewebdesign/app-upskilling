@@ -1,0 +1,38 @@
+.section {
+  margin-bottom: 2rem;
+
+  h2 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+  }
+}
+
+.linkContainer {
+  background: white;
+  border: 1px solid #d8dde0;
+  border-radius: 4px;
+}
+
+.link {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  text-decoration: none;
+  color: var(--nhs-blue);
+  font-size: 1.1rem;
+  border-bottom: 1px solid #d8dde0;
+
+  &:last-child {
+    border-bottom: none;
+  }
+
+  &:hover {
+    text-decoration: underline;
+  }
+
+  .chevron {
+    font-size: 1.5rem;
+    color: var(--nhs-blue);
+  }
+}
