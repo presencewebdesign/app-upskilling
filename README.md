@@ -19,8 +19,8 @@ Navigate to your [localhost](localhost:5173) to see the react application.
 - Admin User
   - Email: `admin@example.com`
   - Password: admin
-- User
-  - Email: `charlie@test.com`
+- Test User
+  - Email: `test@test.com`
   - Password: password
 - Testing Full-Permissions
   - Email: `full-permissions@test.com`

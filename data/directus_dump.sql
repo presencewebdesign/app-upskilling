@@ -1080,6 +1080,11 @@ COPY public.directus_activity (id, action, "user", "timestamp", ip, user_agent, 
 122	login	313c5ea6-f636-46c6-932d-426e72f7c23f	2025-01-28 13:50:09.588+00	127.0.0.1	Mozilla/5.0 (Linux; Android 11; Pixel 5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/92.0.4515.131 Mobile Safari/537.36	directus_users	313c5ea6-f636-46c6-932d-426e72f7c23f	http://localhost:5173
 123	login	2d1c7579-a552-40c3-8951-5457699ce81a	2025-01-28 13:52:13.625+00	127.0.0.1	Mozilla/5.0 (Linux; Android 11; Pixel 5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/92.0.4515.131 Mobile Safari/537.36	directus_users	2d1c7579-a552-40c3-8951-5457699ce81a	http://localhost:5173
 124	login	313c5ea6-f636-46c6-932d-426e72f7c23f	2025-01-28 13:52:27.626+00	127.0.0.1	Mozilla/5.0 (Linux; Android 11; Pixel 5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/92.0.4515.131 Mobile Safari/537.36	directus_users	313c5ea6-f636-46c6-932d-426e72f7c23f	http://localhost:5173
+125	login	313c5ea6-f636-46c6-932d-426e72f7c23f	2025-03-17 12:38:37.218+00	127.0.0.1	Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/133.0.0.0 Safari/537.36	directus_users	313c5ea6-f636-46c6-932d-426e72f7c23f	http://localhost:5173
+126	login	88d552a3-0515-443b-9e23-109ddacd9d0a	2025-03-17 12:46:07.688+00	127.0.0.1	Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/133.0.0.0 Safari/537.36	directus_users	88d552a3-0515-443b-9e23-109ddacd9d0a	http://0.0.0.0:8055
+127	update	88d552a3-0515-443b-9e23-109ddacd9d0a	2025-03-17 12:47:20.156+00	127.0.0.1	Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/133.0.0.0 Safari/537.36	directus_users	2d1c7579-a552-40c3-8951-5457699ce81a	http://0.0.0.0:8055
+128	update	88d552a3-0515-443b-9e23-109ddacd9d0a	2025-03-17 12:47:31.891+00	127.0.0.1	Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/133.0.0.0 Safari/537.36	directus_users	2d1c7579-a552-40c3-8951-5457699ce81a	http://0.0.0.0:8055
+129	login	2d1c7579-a552-40c3-8951-5457699ce81a	2025-03-17 12:51:30.687+00	127.0.0.1	Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/133.0.0.0 Safari/537.36	directus_users	2d1c7579-a552-40c3-8951-5457699ce81a	http://0.0.0.0:8055
 \.
 
 
@@ -1312,7 +1317,12 @@ e23cf42d-1cb2-4784-9971-61ec0bd105e2	User Group Access	badge	\N	\N	f	f	t
 --
 
 COPY public.directus_presets (id, bookmark, "user", role, collection, search, layout, layout_query, layout_options, refresh_interval, filter, icon, color) FROM stdin;
-1	\N	88d552a3-0515-443b-9e23-109ddacd9d0a	\N	messages	\N	\N	{"tabular":{"fields":["subject","content","date_created","status","to"]}}	{"tabular":{"widths":{}}}	\N	\N	bookmark	\N
+2	\N	88d552a3-0515-443b-9e23-109ddacd9d0a	\N	directus_users	\N	cards	{"cards":{"sort":["email"],"page":1}}	{"cards":{"icon":"account_circle","title":"{{ first_name }} {{ last_name }}","subtitle":"{{ email }}","size":4}}	\N	\N	bookmark	\N
+1	\N	88d552a3-0515-443b-9e23-109ddacd9d0a	\N	messages	\N	\N	{"tabular":{"fields":["subject","content","date_created","status","to"],"page":1}}	{"tabular":{"widths":{}}}	\N	\N	bookmark	\N
+3	\N	88d552a3-0515-443b-9e23-109ddacd9d0a	\N	sjr	\N	\N	{"tabular":{"page":1}}	\N	\N	\N	bookmark	\N
+4	\N	2d1c7579-a552-40c3-8951-5457699ce81a	\N	messages	\N	\N	{"tabular":{"page":1}}	\N	\N	\N	bookmark	\N
+5	\N	2d1c7579-a552-40c3-8951-5457699ce81a	\N	sjr	\N	\N	{"tabular":{"page":1}}	\N	\N	\N	bookmark	\N
+6	\N	2d1c7579-a552-40c3-8951-5457699ce81a	\N	directus_users	\N	cards	{"cards":{"sort":["email"],"page":1}}	{"cards":{"icon":"account_circle","title":"{{ first_name }} {{ last_name }}","subtitle":"{{ email }}","size":4}}	\N	\N	bookmark	\N
 \.
 
 
@@ -1410,6 +1420,8 @@ COPY public.directus_revisions (id, activity, collection, item, data, delta, par
 71	102	directus_permissions	3	{"id":3,"collection":"messages","action":"read","permissions":{"_and":[{"to":{"_eq":"$CURRENT_USER"}}]},"validation":null,"presets":null,"fields":["id","status","date_created","date_updated","content","subject","to"],"policy":"e23cf42d-1cb2-4784-9971-61ec0bd105e2"}	{"collection":"messages","action":"read","permissions":{"_and":[{"to":{"_eq":"$CURRENT_USER"}}]},"validation":null,"presets":null,"fields":["id","status","date_created","date_updated","content","subject","to"],"policy":"e23cf42d-1cb2-4784-9971-61ec0bd105e2"}	\N	\N
 72	106	directus_permissions	2	{"id":2,"collection":"sjr","action":"read","permissions":{"_and":[{"roles":{"_in":["$CURRENT_ROLE"]}}]},"validation":null,"presets":null,"fields":["id","date_created","date_updated","name","machine_name"],"policy":"e23cf42d-1cb2-4784-9971-61ec0bd105e2"}	{"collection":"sjr","action":"read","permissions":{"_and":[{"roles":{"_in":["$CURRENT_ROLE"]}}]},"validation":null,"presets":null,"fields":["id","date_created","date_updated","name","machine_name"],"policy":"e23cf42d-1cb2-4784-9971-61ec0bd105e2"}	\N	\N
 73	108	directus_permissions	2	{"id":2,"collection":"sjr","action":"read","permissions":{"_and":[{"roles":{"_in":["$CURRENT_ROLE"]}}]},"validation":null,"presets":null,"fields":["id","date_created","date_updated","name","machine_name","roles"],"policy":"e23cf42d-1cb2-4784-9971-61ec0bd105e2"}	{"collection":"sjr","action":"read","permissions":{"_and":[{"roles":{"_in":["$CURRENT_ROLE"]}}]},"validation":null,"presets":null,"fields":["id","date_created","date_updated","name","machine_name","roles"],"policy":"e23cf42d-1cb2-4784-9971-61ec0bd105e2"}	\N	\N
+79	127	directus_users	2d1c7579-a552-40c3-8951-5457699ce81a	{"id":"2d1c7579-a552-40c3-8951-5457699ce81a","first_name":"Test","last_name":"User","email":"charlie@test.com","password":"**********","location":null,"title":null,"description":null,"tags":null,"avatar":null,"language":null,"tfa_secret":null,"status":"active","role":"35ee142b-a2c5-4153-ba00-288c4b4ca386","token":null,"last_access":"2025-01-28T13:52:13.628Z","last_page":null,"provider":"default","external_identifier":null,"auth_data":null,"email_notifications":true,"appearance":null,"theme_dark":null,"theme_light":null,"theme_light_overrides":null,"theme_dark_overrides":null,"policies":["19c8702c-f9f1-417a-a858-043db1a99556"]}	{"first_name":"Test","last_name":"User"}	\N	\N
+80	128	directus_users	2d1c7579-a552-40c3-8951-5457699ce81a	{"id":"2d1c7579-a552-40c3-8951-5457699ce81a","first_name":"Test","last_name":"User","email":"test@test.com","password":"**********","location":null,"title":null,"description":null,"tags":null,"avatar":null,"language":null,"tfa_secret":null,"status":"active","role":"35ee142b-a2c5-4153-ba00-288c4b4ca386","token":null,"last_access":"2025-01-28T13:52:13.628Z","last_page":null,"provider":"default","external_identifier":null,"auth_data":null,"email_notifications":true,"appearance":null,"theme_dark":null,"theme_light":null,"theme_light_overrides":null,"theme_dark_overrides":null,"policies":["19c8702c-f9f1-417a-a858-043db1a99556"]}	{"email":"test@test.com"}	\N	\N
 \.
 
 
@@ -1429,37 +1441,8 @@ a1dd6fde-d3ed-4677-bdcb-36adefb46283	pkb	supervised_user_circle	Test GP group	\N
 --
 
 COPY public.directus_sessions (token, "user", expires, ip, user_agent, share, origin, next_token) FROM stdin;
-D0T-0Ih2L9WDphzabgJwgnaH82Jp7rL3QlUColZu7yv7MbGPvxR6QFHR2E1ui_2A	88d552a3-0515-443b-9e23-109ddacd9d0a	2025-01-31 10:29:26.733+00	127.0.0.1	Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:134.0) Gecko/20100101 Firefox/134.0	\N	http://localhost:8055	\N
-0sF_JnW010HsEYKjj3LSUAXOrLOclMWzXON3cEa5hVA__OTcVH899P4bHNiwsv-w	2d1c7579-a552-40c3-8951-5457699ce81a	2025-01-31 13:59:52.606+00	127.0.0.1	curl/8.7.1	\N	\N	\N
-gGwRjfLmUTvkNKgyAz0juIuQt1xvNoca4HBCwQlR_hjMsgD2aifgxVrDb8OMc4d5	2d1c7579-a552-40c3-8951-5457699ce81a	2025-01-31 14:48:24.249+00	127.0.0.1	Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:134.0) Gecko/20100101 Firefox/134.0	\N	http://localhost:5173	\N
-MBq17fnop6M5AjECrzQrHU1ldCmfAh8QKsJQvoMwrQ51CPCFqi13STJiL0Ztc1mL	2d1c7579-a552-40c3-8951-5457699ce81a	2025-01-31 14:49:54.142+00	127.0.0.1	Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:134.0) Gecko/20100101 Firefox/134.0	\N	http://localhost:5173	\N
-pIkrzfJBUJL_w6NHrjjzW7-pwpxmUAsGb_4vLI72-s5-BZOvICaqPlmqB5h-g9Fi	2d1c7579-a552-40c3-8951-5457699ce81a	2025-01-31 14:50:31.081+00	127.0.0.1	Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:134.0) Gecko/20100101 Firefox/134.0	\N	http://localhost:5173	\N
-N4rGDSQa491y25mtRrwLTDyWYvBKPmwLnoXElM-TaFehCWZiMByfyMJLh-Oj1WC2	2d1c7579-a552-40c3-8951-5457699ce81a	2025-01-31 14:50:45.565+00	127.0.0.1	Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:134.0) Gecko/20100101 Firefox/134.0	\N	http://localhost:5173	\N
-Lo1_8B9eTcrOoXWUvloowd7yQMIajYDF8xschySO-Fx4tfp2aG-Q5PzmJUG8KJyj	2d1c7579-a552-40c3-8951-5457699ce81a	2025-01-31 14:54:43.32+00	127.0.0.1	Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:134.0) Gecko/20100101 Firefox/134.0	\N	http://localhost:5173	\N
-xNAsfSY8PisYablIJQRfc0gPkgCCbzrOf3-RZ2cwSTdHC0u7iwl1-II2J3qYSFFz	2d1c7579-a552-40c3-8951-5457699ce81a	2025-01-31 14:54:45.486+00	127.0.0.1	Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:134.0) Gecko/20100101 Firefox/134.0	\N	http://localhost:5173	\N
-p95mnF8WDAqXFA31559c7fd1TlqxdPPRB_buSdobK6kWG3u4anGJwDgQ8rL90mmC	2d1c7579-a552-40c3-8951-5457699ce81a	2025-01-31 15:19:22.94+00	127.0.0.1	Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:134.0) Gecko/20100101 Firefox/134.0	\N	http://localhost:5173	\N
-uZIVSeV3AZ05XkJnwFPO3IBUIqoRsQcg4Efwsl6MxaQ_btY2RAmF80TKTTsg1A7s	2d1c7579-a552-40c3-8951-5457699ce81a	2025-01-31 15:19:27.727+00	127.0.0.1	Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:134.0) Gecko/20100101 Firefox/134.0	\N	http://localhost:5173	\N
-XaZOeyYXDjQYu8Km1W67Ps7KUs_pX9i-rb8sQbHUkixx1X0oxyIQaAn4sV-HT67Q	2d1c7579-a552-40c3-8951-5457699ce81a	2025-01-31 15:20:59.843+00	127.0.0.1	Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:134.0) Gecko/20100101 Firefox/134.0	\N	http://localhost:5173	\N
-uKqjIYteov3FoWtXA9v0UnxPBMsRCvIsAXm_kLFxA8BKwA5_eOFu1MCNYXeCUsgS	2d1c7579-a552-40c3-8951-5457699ce81a	2025-02-03 15:39:18.427+00	127.0.0.1	Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:134.0) Gecko/20100101 Firefox/134.0	\N	http://localhost:5173	\N
-eFfYfHgLr5_EBMubzknxOCY32yEWw6jqeQulivgQarty8K5yYwDT5y7YfY4pCXXU	2d1c7579-a552-40c3-8951-5457699ce81a	2025-02-03 15:41:25.941+00	127.0.0.1	Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:134.0) Gecko/20100101 Firefox/134.0	\N	http://localhost:5173	\N
-1ZcR1RBBamCDHGKwVECjqnLMlMiE6gBbSrDam5lTBFfYf-V_Yww3DBs4uxf2n1bN	2d1c7579-a552-40c3-8951-5457699ce81a	2025-02-03 15:42:11.926+00	127.0.0.1	Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:134.0) Gecko/20100101 Firefox/134.0	\N	http://localhost:5173	\N
-hfwDqBhlbYNOUArgdYhqwuE98p5sZJI7ycuoe0z5eqQfCMjoteM8_YF9CIUXpKM9	2d1c7579-a552-40c3-8951-5457699ce81a	2025-02-03 15:47:35.165+00	127.0.0.1	Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:134.0) Gecko/20100101 Firefox/134.0	\N	http://localhost:5173	\N
-G1MGgalaZvlcjbbRCaqASG6YjDWRkCrJl7FP71MlOMMl-qS89hmcXb15D4y81xKq	2d1c7579-a552-40c3-8951-5457699ce81a	2025-02-03 15:53:51.121+00	127.0.0.1	Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:134.0) Gecko/20100101 Firefox/134.0	\N	http://localhost:5173	\N
-Cau2mtNS4wb_Y_m8zfoLyc4cBjghJXWuPJplwtJIPcoe0wY4FbmL2cBSCaTdQtKj	2d1c7579-a552-40c3-8951-5457699ce81a	2025-02-03 15:55:11.866+00	127.0.0.1	Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:134.0) Gecko/20100101 Firefox/134.0	\N	http://localhost:5173	\N
-_QDmJvpVzJUg5CCy22LLXhBi6gIdfs-N4sPzvWbhYUomaiBefE1pcQB8IqRnbT5y	2d1c7579-a552-40c3-8951-5457699ce81a	2025-02-04 11:57:56.343+00	127.0.0.1	Mozilla/5.0 (Linux; Android 11; Pixel 5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/92.0.4515.131 Mobile Safari/537.36	\N	http://localhost:5173	\N
-LABmfzKp4BDHcjLi9fKTzFMYjFqKwbtrPNdWxAWvBbl_3eP1zqi8VVVWc6t69K4V	2d1c7579-a552-40c3-8951-5457699ce81a	2025-02-04 12:37:11.699+00	127.0.0.1	Mozilla/5.0 (Linux; Android 11; Pixel 5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/92.0.4515.131 Mobile Safari/537.36	\N	http://localhost:5173	\N
-1Y49-203S9JwP5kCrAgEN_lFvc1adMDkRNGF0wycy_gkuCM0qcsUN5V_RKRCN_PF	2d1c7579-a552-40c3-8951-5457699ce81a	2025-02-03 16:26:36.183+00	127.0.0.1	Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:134.0) Gecko/20100101 Firefox/134.0	\N	http://localhost:5173	\N
-CMDG1QSPa2_ItnUwl33JxFzv51zzd0T3qx_l15SVSFMOe232dsPkysE-M4PjUQuo	2d1c7579-a552-40c3-8951-5457699ce81a	2025-02-03 16:50:19.441+00	127.0.0.1	Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:134.0) Gecko/20100101 Firefox/134.0	\N	http://localhost:5173	\N
-K7d4bKbpg1iYeXOeh-x8KAx6A39OJ6uN8Dwk5itcISkB1WzN87hit7ROj658p0yp	88d552a3-0515-443b-9e23-109ddacd9d0a	2025-02-04 12:53:26.346+00	127.0.0.1	Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:134.0) Gecko/20100101 Firefox/134.0	\N	http://localhost:8055	\N
-t0C9HKMHkf_D-zVqCr-V7TIsnxz02PNxSN_QVePwMtFtPwe-nyzkapRUw6lypuuv	88d552a3-0515-443b-9e23-109ddacd9d0a	2025-01-28 16:57:28.798+00	127.0.0.1	Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:134.0) Gecko/20100101 Firefox/134.0	\N	http://localhost:8055	\N
-6NpNs_9qhxsmHmSePaGzcvBqnxGoU1ytu1zGJJuHE0LESoEE9fSwxsMOp1xbW43d	313c5ea6-f636-46c6-932d-426e72f7c23f	2025-02-03 16:59:47.498+00	127.0.0.1	Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:134.0) Gecko/20100101 Firefox/134.0	\N	http://localhost:5173	\N
-0B-69b5EF9Htt3z2a4dxvRIEH20l30x96q2BrrWIlZtEC6ama4d_WqmZsu2nJx67	2d1c7579-a552-40c3-8951-5457699ce81a	2025-02-03 17:07:19.459+00	127.0.0.1	Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:134.0) Gecko/20100101 Firefox/134.0	\N	http://localhost:5173	\N
-_GOKK98RXCh6cCTrYWoGlBK0yfJZ47NJAbEvLeSRHBR56o5X-GHrC7ewDAXaNRTE	2d1c7579-a552-40c3-8951-5457699ce81a	2025-02-04 13:26:07.154+00	127.0.0.1	Mozilla/5.0 (Linux; Android 11; Pixel 5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/92.0.4515.131 Mobile Safari/537.36	\N	http://localhost:5173	\N
-fvwF_A-5-4i1E3b8EIWi_eBHklQFmMhWQBY0SU3tEEYv2lBa41FXlfCCoog2Cb_4	313c5ea6-f636-46c6-932d-426e72f7c23f	2025-02-04 13:26:22.206+00	127.0.0.1	Mozilla/5.0 (Linux; Android 11; Pixel 5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/92.0.4515.131 Mobile Safari/537.36	\N	http://localhost:5173	\N
-7HXKgWqRnapUQ8ga9ACkzzCg7UstD5xG7CPJF4j6OV-NTbBO88sFbYTVn_RBgt3W	2d1c7579-a552-40c3-8951-5457699ce81a	2025-02-04 13:45:19.611+00	127.0.0.1	Mozilla/5.0 (Linux; Android 11; Pixel 5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/92.0.4515.131 Mobile Safari/537.36	\N	http://localhost:5173	\N
-3cerZlchia66gV8rUa7RRpA_fUpg2OuyHQoZGPnIyuxyrMfUXw2pzEf9RSpU3O1Q	313c5ea6-f636-46c6-932d-426e72f7c23f	2025-02-04 13:50:09.579+00	127.0.0.1	Mozilla/5.0 (Linux; Android 11; Pixel 5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/92.0.4515.131 Mobile Safari/537.36	\N	http://localhost:5173	\N
-OjRxa0VK1n2nYCOBsRdldKGgH6X9JNHKItUvdDowJEN40b_9qNY2VSTTYE4lHtQL	2d1c7579-a552-40c3-8951-5457699ce81a	2025-02-04 13:52:13.619+00	127.0.0.1	Mozilla/5.0 (Linux; Android 11; Pixel 5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/92.0.4515.131 Mobile Safari/537.36	\N	http://localhost:5173	\N
-Hia1wlcIvvgGBknX8KMqzJGyRCEZgoShJcn9s13T5E4fq31Qm-CTf08WNBiKC3gg	313c5ea6-f636-46c6-932d-426e72f7c23f	2025-02-04 13:52:27.62+00	127.0.0.1	Mozilla/5.0 (Linux; Android 11; Pixel 5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/92.0.4515.131 Mobile Safari/537.36	\N	http://localhost:5173	\N
+RUaunL-aC8Jx_hzWW0lpzKkzcQ_9Df-IusuoCfduuoZH0sVYOwbYDSPk4cERFOBj	313c5ea6-f636-46c6-932d-426e72f7c23f	2025-03-24 12:38:37.208+00	127.0.0.1	Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/133.0.0.0 Safari/537.36	\N	http://localhost:5173	\N
+CxnYxxF1U4CSKufocPmmiXuSL0LBVXsJ-4pC9-fH4VMeuitxk7a1fZt_HVBDwIkK	2d1c7579-a552-40c3-8951-5457699ce81a	2025-03-24 12:51:30.666+00	127.0.0.1	Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/133.0.0.0 Safari/537.36	\N	http://0.0.0.0:8055	\N
 \.
 
 
@@ -1492,10 +1475,10 @@ COPY public.directus_translations (id, language, key, value) FROM stdin;
 --
 
 COPY public.directus_users (id, first_name, last_name, email, password, location, title, description, tags, avatar, language, tfa_secret, status, role, token, last_access, last_page, provider, external_identifier, auth_data, email_notifications, appearance, theme_dark, theme_light, theme_light_overrides, theme_dark_overrides) FROM stdin;
-2d1c7579-a552-40c3-8951-5457699ce81a	Charlie	Jacques	charlie@test.com	$argon2id$v=19$m=65536,t=3,p=4$oe8DyNEzkwl4A/s01mgBXw$ALqF8cP6WKdYcIsw+VV9MVh8nqdXokQnIRUIduFWF3s	\N	\N	\N	\N	\N	\N	\N	active	35ee142b-a2c5-4153-ba00-288c4b4ca386	\N	2025-01-28 13:52:13.628+00	\N	default	\N	\N	t	\N	\N	\N	\N	\N
-313c5ea6-f636-46c6-932d-426e72f7c23f	Testing	Full-Permissions	full-permissions@test.com	$argon2id$v=19$m=65536,t=3,p=4$53Nf5mUiOKBQuvncVNZVEA$3jVvYTviHWELzovguJhg/3CoL6L62PLg53FtlLBD7Fk	\N	\N	\N	\N	\N	\N	\N	active	a1dd6fde-d3ed-4677-bdcb-36adefb46283	\N	2025-01-28 13:52:27.63+00	\N	default	\N	\N	t	\N	\N	\N	\N	\N
 fc595e66-7a89-4db0-a272-77c75646d18e	Testing	Limited-Permissions	limited-permissions@test.com	$argon2id$v=19$m=65536,t=3,p=4$GEj3GLrtCaayH0i0Okz5Xw$LCbBqJjKFXp0KdqyirKxEIFmgr/4lRnvkUO2246TT2g	\N	\N	\N	\N	\N	\N	\N	active	35ee142b-a2c5-4153-ba00-288c4b4ca386	\N	\N	\N	default	\N	\N	t	\N	\N	\N	\N	\N
-88d552a3-0515-443b-9e23-109ddacd9d0a	Admin	User	admin@example.com	$argon2id$v=19$m=65536,t=3,p=4$FzfBAIo9QUhuziBMLqpdEg$hKFJ8fOZMa5Me0y0aGDmE+vcSHG2wmCG4YWhUT3Siys	\N	\N	\N	\N	\N	\N	\N	active	ea221134-dcd8-4598-9ae2-d84a2a044a03	\N	2025-01-28 12:53:26.364+00	/content/sjr	default	\N	\N	t	\N	\N	\N	\N	\N
+313c5ea6-f636-46c6-932d-426e72f7c23f	Testing	Full-Permissions	full-permissions@test.com	$argon2id$v=19$m=65536,t=3,p=4$53Nf5mUiOKBQuvncVNZVEA$3jVvYTviHWELzovguJhg/3CoL6L62PLg53FtlLBD7Fk	\N	\N	\N	\N	\N	\N	\N	active	a1dd6fde-d3ed-4677-bdcb-36adefb46283	\N	2025-03-17 12:38:37.223+00	\N	default	\N	\N	t	\N	\N	\N	\N	\N
+88d552a3-0515-443b-9e23-109ddacd9d0a	Admin	User	admin@example.com	$argon2id$v=19$m=65536,t=3,p=4$FzfBAIo9QUhuziBMLqpdEg$hKFJ8fOZMa5Me0y0aGDmE+vcSHG2wmCG4YWhUT3Siys	\N	\N	\N	\N	\N	\N	\N	active	ea221134-dcd8-4598-9ae2-d84a2a044a03	\N	2025-03-17 12:46:07.705+00	/users/88d552a3-0515-443b-9e23-109ddacd9d0a	default	\N	\N	t	\N	\N	\N	\N	\N
+2d1c7579-a552-40c3-8951-5457699ce81a	Test	User	test@test.com	$argon2id$v=19$m=65536,t=3,p=4$oe8DyNEzkwl4A/s01mgBXw$ALqF8cP6WKdYcIsw+VV9MVh8nqdXokQnIRUIduFWF3s	\N	\N	\N	\N	\N	\N	\N	active	35ee142b-a2c5-4153-ba00-288c4b4ca386	\N	2025-03-17 12:51:30.703+00	/content/sjr	default	\N	\N	t	\N	\N	\N	\N	\N
 \.
 
 
@@ -1550,7 +1533,7 @@ COPY public.sjr_directus_roles (id, sjr_id, directus_roles_id) FROM stdin;
 -- Name: directus_activity_id_seq; Type: SEQUENCE SET; Schema: public; Owner: pguser
 --
 
-SELECT pg_catalog.setval('public.directus_activity_id_seq', 124, true);
+SELECT pg_catalog.setval('public.directus_activity_id_seq', 129, true);
 
 
 --
@@ -1571,14 +1554,14 @@ SELECT pg_catalog.setval('public.directus_notifications_id_seq', 1, false);
 -- Name: directus_permissions_id_seq; Type: SEQUENCE SET; Schema: public; Owner: pguser
 --
 
-SELECT pg_catalog.setval('public.directus_permissions_id_seq', 4, true);
+SELECT pg_catalog.setval('public.directus_permissions_id_seq', 3, true);
 
 
 --
 -- Name: directus_presets_id_seq; Type: SEQUENCE SET; Schema: public; Owner: pguser
 --
 
-SELECT pg_catalog.setval('public.directus_presets_id_seq', 1, true);
+SELECT pg_catalog.setval('public.directus_presets_id_seq', 6, true);
 
 
 --
@@ -1592,7 +1575,7 @@ SELECT pg_catalog.setval('public.directus_relations_id_seq', 4, true);
 -- Name: directus_revisions_id_seq; Type: SEQUENCE SET; Schema: public; Owner: pguser
 --
 
-SELECT pg_catalog.setval('public.directus_revisions_id_seq', 78, true);
+SELECT pg_catalog.setval('public.directus_revisions_id_seq', 80, true);
 
 
 --
