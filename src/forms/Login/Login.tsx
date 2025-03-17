@@ -27,7 +27,7 @@ const LoginForm: FC<LoginFormProps> = ({ callback = () => {} }) => {
   return (
     <div className={s.loginContainer}>
       <div className={s.formWrapper}>
-        <h2>Sign in to NHS App</h2>
+        <h2>Sign in</h2>
         <p className={s.subtitle}>Enter your email and password to continue</p>
         
         <form className={s.form} onSubmit={handleSubmit} noValidate>

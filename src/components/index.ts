@@ -4,4 +4,4 @@ import ServiceSection from "./ServiceSection/ServiceSection";
 
 export { Message, LinkCollection, ServiceSection };
 
-export * from "./HelpChangeNhs/HelpChangeNhs";
+export * from "./HelpChange/HelpChange";

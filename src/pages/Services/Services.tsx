@@ -11,12 +11,12 @@ const Services = () => {
   const otherServices = [
     { title: "Check if you need urgent medical help using 111 online", route: ROUTES.MESSAGES },
     { title: "Request an emergency repeat prescription using 111 online", route: ROUTES.MESSAGES },
-    { title: "Find NHS services near you", route: ROUTES.MESSAGES },
+    { title: "Find services near you", route: ROUTES.MESSAGES },
   ];
 
   const healthInfo = [
-    { title: "Browse NHS health information", route: ROUTES.MESSAGES },
-    { title: "Browse NHS medicines information", route: ROUTES.MESSAGES },
+    { title: "Browse health information", route: ROUTES.MESSAGES },
+    { title: "Browse medicines information", route: ROUTES.MESSAGES },
     { title: "Find COVID-19 guidance", route: ROUTES.MESSAGES },
   ];
 
@@ -26,7 +26,7 @@ const Services = () => {
       <p className={s.subtitle}>Get care and support to help you stay well</p>
 
       <ServiceSection title="Your GP services" links={gpServices} />
-      <ServiceSection title="Other NHS services" links={otherServices} />
+      <ServiceSection title="Other services" links={otherServices} />
       <ServiceSection title="Find health information" links={healthInfo} />
     </div>
   );

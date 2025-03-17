@@ -1,5 +1,5 @@
 {
-  "name": "nhs-app-upskilling",
+  "name": "app-upskilling",
   "version": "1.0.0",
   "main": "index.js",
   "type": "module",
@@ -21,7 +21,7 @@
   "description": "",
   "engineStrict": true,
   "engines": {
-    "node": ">=22"
+    "node": ">=20"
   },
   "dependencies": {
     "directus": "^11.4.0",

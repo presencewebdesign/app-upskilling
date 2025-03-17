@@ -1,7 +1,7 @@
 import api from "../../lib/api"
 import { ROUTES, SJR } from "../../types"
 import { useUserInfo } from "../../hooks"
-import { ServiceSection, HelpChangeNhs } from "../../components"
+import { ServiceSection, HelpChange } from "../../components"
 import s from './Home.module.scss';
 import { useSjrContext } from "../../context";
 import { useNavigate } from "react-router";
@@ -29,7 +29,7 @@ const Home = () => {
   const services = [
     { title: "Request repeat prescriptions", route: ROUTES.MESSAGES },
     { title: "Check if you need urgent medical help using 111 online", route: ROUTES.MESSAGES },
-    { title: "Find NHS services near you", route: ROUTES.MESSAGES }
+    { title: "Find services near you", route: ROUTES.MESSAGES }
   ];
 
   const healthLinks = [
@@ -56,7 +56,7 @@ const Home = () => {
           {getGreeting()},<br />
           {userInfo?.first_name} {userInfo?.last_name}
         </h1>
-        <h2>NHS number: <span className={s.nhsNumber}>432 270 2821</span></h2>
+        <h2>Reference number: <span className={s.nhsNumber}>432 270 2821</span></h2>
       </header>
 
       <ServiceSection title="Services" links={services} />
@@ -68,7 +68,7 @@ const Home = () => {
       <ServiceSection title="Messages" links={messages} />
       <ServiceSection title="Account" links={account} />
 
-      <HelpChangeNhs />
+      <HelpChange />
 
       <button onClick={() => api.logout()} className={s.logoutButton}>Logout</button>
     </div>

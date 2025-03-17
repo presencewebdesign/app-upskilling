@@ -1,4 +1,4 @@
-# NHS App Upskilling
+# Healthcare App
 
 This project uses Directus as a Headless CMS for storing content, Auth, RBAC etc.
 
@@ -19,7 +19,7 @@ Navigate to your [localhost](localhost:5173) to see the react application.
 - Admin User
   - Email: `admin@example.com`
   - Password: admin
-- Charlie Jacques
+- User
   - Email: `charlie@test.com`
   - Password: password
 - Testing Full-Permissions
@@ -28,4 +28,5 @@ Navigate to your [localhost](localhost:5173) to see the react application.
 - Testing Limited-Permissions
   - Email: `limited-permissions@test.com`
   - Password: password
+
 # app-upskilling
